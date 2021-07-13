@@ -22,11 +22,16 @@ export class AppComponent implements OnInit {
   }
 
   save() {
+    if(this.name && this.name.length > 0){
     this.appService.saveData(this.name,this.addType,null).subscribe(data => {
       if (data.status == 200) {
         this.getData();
       }
     });
+  }
+  else{
+    alert('Please enter a name for folder !!!');
+  }
   }
 
   showHide(){

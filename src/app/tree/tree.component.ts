@@ -37,10 +37,15 @@ export class TreeComponent implements OnInit {
   }
 
   save(node) {
+    if(this.name && this.name.length > 0){
     this.appService.saveData(this.name, this.addType, node.id).subscribe(data => {
       if (data.status == 200) {
         node.children.push(data.data);
       }
     });
   }
+  else{
+    alert('Please enter a name for file or folder !!!');
+  }
+}
 }
