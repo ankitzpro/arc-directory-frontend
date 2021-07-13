@@ -1,0 +1,37 @@
+<div >
+    <ul>
+        <li *ngFor="let node of nodes; trackBy: trackNode">
+            <span class="pointer" (click)="onFolderButtonClick(node)">
+                <a *ngIf="node.type=='folder' && !node.expand" class="fa fa-folder text-dark"></a>
+                <a *ngIf="node.type=='folder' && node.expand" class="fa fa-folder-open text-dark"></a>
+                <a *ngIf="node.type=='file'" class="fa fa-file text-dark"></a>
+                {{node.name}}
+                <ng-container *ngIf="node.children?.length>0">
+                    <a class="fa fa-caret-right ms-2 text-dark" *ngIf="!node.expand"></a>
+                    <a class="fa fa-caret-down ms-2 text-dark" *ngIf="node.expand"></a>
+                </ng-container>
+            </span>
+            <a *ngIf="node.type=='folder'" class="fa fa-plus-square ms-2 text-secondary" (click)="onFolderButtonClick(node)"></a>
+            <a class="fa fa-trash ms-2 text-danger pointer" (click)="delete(node)"></a>
+            <div *ngIf="node.type=='folder' &&   node.expand" >
+                <div class="">
+                    <div class="ms-2">
+                        <label>
+                            <input label="File" type="radio" id="file{{node.id}}" name="type{{node.id}}" value="file"
+                                [(ngModel)]="addType" [checked]="true">
+                            <i class="fa fa-file me-1"></i>
+                        </label>
+                        <label>
+                            <input label="Folder" type="radio" id="folder{{node.id}}" name="type{{node.id}}"
+                                [(ngModel)]="addType" value="folder">
+                            <i class="fa fa-folder me-1"></i>
+                        </label>
+                        <input class="custom me-1" placeholder="Enter Name" type="text" [(ngModel)]="name">
+                        <a class="fa fa-check pointer text-success" (click)="save(node)"></a>
+                    </div>
+                </div>
+            </div>
+            <app-tree *ngIf="node.children && node.expand" [nodes]="node.children"></app-tree>
+        </li>
+    </ul>
+</div>

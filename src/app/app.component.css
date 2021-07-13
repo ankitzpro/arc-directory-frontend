@@ -1,0 +1,42 @@
+.box {
+  border: 1px solid black;
+  border-radius: 24px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+a{
+  text-decoration: none !important;
+}
+.alert {
+  padding: 0 !important;
+  font-size: 11px;
+  color: red;
+}
+
+input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* IMAGE STYLES */
+input[type="radio"] + i {
+  cursor: pointer;
+}
+
+/* CHECKED STYLES */
+input[type="radio"]:checked + i {
+  outline: 2px solid #f00;
+}
+.custom {
+  width: 120px;
+  height: 20px;
+  font-size: 12px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+

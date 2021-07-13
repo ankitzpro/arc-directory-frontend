@@ -1,0 +1,18 @@
+<div class="container mt-2">
+  <button class="btn btn-sm btn-secondary"  (click)="showHide()"><i class="fa fa-plus"></i></button>
+  <div class="mt-2" *ngIf="showBtn">
+    <div >
+      <div class="ms-2">
+        <label>
+          <input label="Folder" type="radio" id="folders" name="types" [(ngModel)]="addType" value="folder" [checked]="true" >
+          <i class="fa fa-folder me-1 text-dark"></i>
+        </label>
+        <input class="custom me-1" type="text" placeholder="Enter Name" [(ngModel)]="name">
+        <a class="fa fa-check pointer text-success" (click)="save()"></a>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex" *ngIf="dataAvailable">
+    <app-tree [nodes]="data"></app-tree>
+  </div>
+</div>

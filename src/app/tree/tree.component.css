@@ -1,0 +1,38 @@
+/* Remove bullets from ul */
+ul {
+  list-style-type: none;
+}
+li {
+  line-height: 140%;
+}
+
+a{
+  text-decoration: none !important;
+}
+.pointer {
+  cursor: pointer;
+}
+
+
+input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* IMAGE STYLES */
+input[type="radio"] + i {
+  cursor: pointer;
+}
+
+/* CHECKED STYLES */
+input[type="radio"]:checked + i {
+  outline: 2px solid #f00;
+}
+
+.custom {
+  width: 120px;
+  height: 20px;
+  font-size: 12px;
+}
