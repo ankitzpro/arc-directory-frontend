@@ -7,7 +7,9 @@
 - Delete directory or files
 
 ## _Requirements_
-You need nodejs install on your system
+
+- Node
+- Angular 
 
 ## Test Locally
 ```
